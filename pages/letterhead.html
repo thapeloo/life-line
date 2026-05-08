@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Letterhead & Stationery — Lifeline Pharmacy Brand Guidelines</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/placeholder.css" />
+</head>
+<body>
+
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+    <span></span><span></span><span></span>
+  </button>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar__brand">
+      <img src="../LIFELINE LOGO.png" alt="Lifeline Pharmacy" class="sidebar__logo" />
+      <div class="sidebar__tagline">Brand Guidelines<br><span>2026</span></div>
+    </div>
+    <a href="../index.html" class="sidebar__back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back to Guidelines
+    </a>
+    <nav class="sidebar__nav">
+      <a href="../index.html#about" class="nav-link"><span class="nav-num">01</span>About</a>
+      <a href="../index.html#logo" class="nav-link"><span class="nav-num">03</span>Logo</a>
+      <a href="../index.html#colours" class="nav-link"><span class="nav-num">04</span>Colours</a>
+      <a href="../index.html#typography" class="nav-link"><span class="nav-num">05</span>Typography</a>
+      <a href="../index.html#brand-voice" class="nav-link"><span class="nav-num">06</span>Brand Voice</a>
+      <a href="../index.html#photography" class="nav-link">Photography</a>
+      <a href="../index.html#dos-donts" class="nav-link">Do's &amp; Don'ts</a>
+      <a href="../index.html#legal" class="nav-link">Legal</a>
+      <a href="../index.html#applications" class="nav-link">Applications</a>
+
+      <div class='sidebar__page-title'>Applications</div>
+      <a href="brochures.html" class="nav-link">Brochures</a>
+      <a href="business-cards.html" class="nav-link">Business Cards</a>
+      <a href="posters.html" class="nav-link">Posters</a>
+      <a href="letterhead.html" class="nav-link active">Letterhead</a>
+      <a href="social-media.html" class="nav-link">Social Media</a>
+      <a href="email-signature.html" class="nav-link">Email Signature</a>
+      <a href="signage.html" class="nav-link">Signage</a>
+    </nav>
+    <div class="sidebar__footer">
+      <p>Phakalane, Gaborone<br>Botswana &mdash; 2026</p>
+    </div>
+  </aside>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <main class="page-content">
+    <section class="coming-hero">
+      <div class="coming-hero__bg">
+        <div class="coming-hero__circle coming-hero__circle--blue"></div>
+        <div class="coming-hero__circle coming-hero__circle--green"></div>
+      </div>
+      <div class="coming-hero__inner">
+        <div class="coming-hero__icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="6" width="32" height="36" rx="3" stroke="currentColor" stroke-width="2.5"/><path d="M14 12h20M14 18h12M14 26h20M14 31h16M14 36h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <span class="coming-hero__badge">Coming Soon</span>
+        <h1 class="coming-hero__title">Letterhead & Stationery</h1>
+        <div class="coming-hero__divider"></div>
+        <p class="coming-hero__sub">Official Lifeline Pharmacy letterheads, envelopes, and branded stationery sets are in development. These will ensure all formal correspondence reflects the brand consistently.</p>
+        <div class="coming-hero__specs">
+        <span class="spec-tag">A4 letterhead</span>
+        <span class="spec-tag">Branded envelopes</span>
+        <span class="spec-tag">Compliment slips</span>
+        <span class="spec-tag">DOCX &amp; PDF formats</span>
+        <span class="spec-tag">Print &amp; digital use</span>
+        </div>
+        <a href="../index.html#applications" class="coming-hero__back">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+          Back to Brand Guidelines
+        </a>
+      </div>
+    </section>
+
+    <div class="page-footer-grid">
+      <div class="pf-item">
+        <span class="pf-item__label">Brand</span>
+        <span class="pf-item__value">Lifeline Pharmacy</span>
+      </div>
+      <div class="pf-item">
+        <span class="pf-item__label">Section</span>
+        <span class="pf-item__value">Letterhead & Stationery</span>
+      </div>
+      <div class="pf-item">
+        <span class="pf-item__label">Status</span>
+        <span class="pf-item__value" style="color: var(--blue);">In Production</span>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const toggle  = document.getElementById('navToggle');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    toggle.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      overlay.classList.toggle('open');
+    });
+    overlay.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('open');
+    });
+  </script>
+</body>
+</html>

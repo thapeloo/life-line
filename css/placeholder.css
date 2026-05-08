@@ -1,0 +1,391 @@
+/* ─────────────────────────────────────────────────────
+   Lifeline Pharmacy — Placeholder / Coming Soon Pages
+───────────────────────────────────────────────────── */
+
+:root {
+  --blue:      #29ABE2;
+  --green:     #3AB54A;
+  --deep-blue: #1A7FAD;
+  --forest:    #267A31;
+  --charcoal:  #111214;
+  --ice:       #F6FAFB;
+  --mid-grey:  #8C9099;
+  --white:     #FFFFFF;
+  --sidebar-w: 240px;
+  --font:      'Montserrat', sans-serif;
+  --ease-out:  cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  background: var(--charcoal);
+  color: var(--white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+
+/* ─── Sidebar (same as main) ───────────────────────── */
+
+.sidebar {
+  position: fixed;
+  top: 0; left: 0;
+  width: var(--sidebar-w);
+  height: 100vh;
+  background: #0a0b0c;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  overflow-y: auto;
+  border-right: 1px solid rgba(255,255,255,0.05);
+  transition: transform 0.35s var(--ease-out);
+}
+
+.sidebar__brand {
+  padding: 28px 24px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sidebar__logo {
+  width: 40px; height: 40px;
+  object-fit: contain;
+}
+
+.sidebar__tagline {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.35);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+}
+
+.sidebar__tagline span { color: var(--blue); }
+
+.sidebar__back {
+  margin: 16px 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.45);
+  background: rgba(255,255,255,0.04);
+  border-radius: 8px;
+  transition: background 0.25s, color 0.25s;
+}
+
+.sidebar__back:hover {
+  background: rgba(255,255,255,0.08);
+  color: var(--white);
+}
+
+.sidebar__back svg { flex-shrink: 0; }
+
+.sidebar__page-title {
+  padding: 20px 24px 12px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+}
+
+.sidebar__nav {
+  flex: 1;
+  padding: 4px 0 20px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 24px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.4);
+  transition: color 0.25s, background 0.25s;
+  position: relative;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 50%;
+  transform: translateY(-50%);
+  width: 3px; height: 0;
+  background: var(--blue);
+  border-radius: 0 2px 2px 0;
+  transition: height 0.25s;
+}
+
+.nav-link:hover { color: rgba(255,255,255,0.8); background: rgba(255,255,255,0.04); }
+.nav-link.active { color: var(--white); font-weight: 700; }
+.nav-link.active::before { height: 70%; }
+
+.nav-num {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: 1px;
+  min-width: 20px;
+}
+
+.sidebar__footer {
+  padding: 20px 24px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.sidebar__footer p {
+  font-size: 10.5px;
+  color: rgba(255,255,255,0.2);
+  line-height: 1.6;
+}
+
+/* ─── Mobile Nav Toggle ────────────────────────────── */
+
+.nav-toggle {
+  display: none;
+  position: fixed;
+  top: 16px; left: 16px;
+  z-index: 200;
+  width: 44px; height: 44px;
+  background: var(--charcoal);
+  border-radius: 8px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.nav-toggle span {
+  display: block;
+  width: 20px; height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+}
+
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 99;
+}
+
+/* ─── Main Content ─────────────────────────────────── */
+
+.page-content {
+  margin-left: var(--sidebar-w);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Coming Soon Hero ─────────────────────────────── */
+
+.coming-hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 40px;
+  position: relative;
+  overflow: hidden;
+  background: var(--charcoal);
+  min-height: 100vh;
+}
+
+.coming-hero__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.coming-hero__circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.12;
+}
+
+.coming-hero__circle--blue {
+  width: 600px; height: 600px;
+  background: var(--blue);
+  top: -200px; right: -100px;
+}
+
+.coming-hero__circle--green {
+  width: 500px; height: 500px;
+  background: var(--green);
+  bottom: -150px; left: -100px;
+}
+
+.coming-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+}
+
+.coming-hero__icon {
+  width: 96px; height: 96px;
+  margin: 0 auto 36px;
+  background: rgba(41,171,226,0.12);
+  border: 1px solid rgba(41,171,226,0.25);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue);
+}
+
+.coming-hero__icon svg { width: 48px; height: 48px; }
+
+.coming-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(41,171,226,0.12);
+  border: 1px solid rgba(41,171,226,0.25);
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 28px;
+}
+
+.coming-hero__badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--blue);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+.coming-hero__title {
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 900;
+  color: var(--white);
+  letter-spacing: -2px;
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+
+.coming-hero__sub {
+  font-size: 17px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+  max-width: 480px;
+  margin: 0 auto 48px;
+}
+
+.coming-hero__divider {
+  width: 60px; height: 3px;
+  background: linear-gradient(90deg, var(--blue), var(--green));
+  border-radius: 2px;
+  margin: 0 auto 40px;
+}
+
+.coming-hero__specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+
+.spec-tag {
+  padding: 8px 18px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 100px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.6);
+}
+
+.coming-hero__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.5px;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+
+.coming-hero__back:hover {
+  background: rgba(41,171,226,0.15);
+  border-color: rgba(41,171,226,0.4);
+  color: var(--white);
+}
+
+/* ─── Bottom Grid ──────────────────────────────────── */
+
+.page-footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.pf-item {
+  padding: 36px 40px;
+  border-right: 1px solid rgba(255,255,255,0.05);
+}
+
+.pf-item:last-child { border-right: none; }
+
+.pf-item__label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 10px;
+  display: block;
+}
+
+.pf-item__value {
+  font-size: 15px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.8);
+}
+
+/* ─── Responsive ───────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .sidebar { transform: translateX(-100%); }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar-overlay.open { display: block; }
+  .nav-toggle { display: flex; }
+  .page-content { margin-left: 0; }
+  .coming-hero { padding: 80px 24px; }
+  .page-footer-grid { grid-template-columns: 1fr; }
+  .pf-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.05); }
+}
